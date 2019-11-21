@@ -1,0 +1,405 @@
+/*
+6e09f3
+mint : #10e2cf
+
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+/* font-family: 'Playfair Display SC', serif; */
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.container {
+  height: 100%;
+  max-width: 1190px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+section {
+  max-width: 100%;
+  width: 100vw;
+}
+
+.target {
+  position: absolute;
+  left: 0px;
+  top: -80px;
+  visibility: hidden;
+}
+
+/*********************************
+****************NAV***************
+*********************************/
+
+nav {
+  height: 80px;
+  width: 100vw;
+  max-width: 100%;
+  position: fixed;
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, background-color 0.3s;
+  font-size: 1.1em;
+  z-index: 1;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3em;
+  cursor: default;
+}
+
+.menu {
+  position: relative;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.menu li:nth-child(4) {
+  margin-right: 0px !important;
+}
+
+.indicator {
+  height: 3px;
+  width: 51px;
+  position: absolute;
+  background-color: #ff9800;
+  top: 34px;
+  left: 0px;
+  transition: left 0.3s, width 0.3s;
+}
+
+/*********************************
+***************HEAD***************
+*********************************/
+
+#head {
+  height: 100vh;
+  background-image: url("/img/bg3.jpg");
+  background-size: cover;
+  background-position-x: center;
+  /* //background-position-y: -320px; */
+  position: relative;
+}
+
+#head .container {
+  padding-top: 80px;
+}
+
+.head-text {
+  height: 50%;
+  width: 100%;
+}
+
+.head-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 10em;
+  font-family: "Playfair Display", serif;
+  color: rgb(26, 26, 26);
+}
+
+.head-bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2em;
+}
+
+.head-bottom p {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+/*********************************
+***************ABOUT**************
+*********************************/
+
+#about {
+  height: auto;
+  position: relative;
+}
+
+.text-container {
+  height: auto;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.sub-title {
+  font-size: 1.2em;
+  color: rgb(116, 116, 116);
+  margin-bottom: 7px;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.1em;
+  margin-bottom: 25px;
+}
+
+#about p {
+  font-size: 1.2em;
+  line-height: 1.8em;
+  margin-bottom: 20px;
+}
+
+/*********************************
+**************SKILLS**************
+*********************************/
+
+#skills {
+  height: auto;
+  background-color: #f6f6f6;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding-bottom: 50px;
+}
+
+.skill {
+  height: 200px;
+  width: 100%;
+  padding: 35px;
+}
+
+.skill-icon {
+  font-size: 6em;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  color: #333;
+  justify-content: center;
+  align-items: flex-start;
+  transition: transform 0.2s;
+}
+
+.skill-icon:hover {
+  color: rgb(19, 19, 19);
+  transform: scale(1.1);
+}
+
+.skill-text {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1.1em;
+  color: rgb(116, 116, 116);
+  cursor: default;
+}
+
+/*********************************
+***************WORKS**************
+*********************************/
+
+#works {
+  height: auto;
+  position: relative;
+}
+
+.works-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+  padding-bottom: 80px;
+}
+
+.work {
+  height: auto;
+  width: 100%;
+}
+
+.work-image {
+  height: 400px;
+  width: 100%;
+  background-color: rgb(59, 59, 59);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-image:hover .work-icons {
+  background-color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
+.work-text {
+  padding: 15px;
+}
+
+.work-title {
+  margin-bottom: 8px;
+}
+
+.work-title a {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3em;
+}
+
+.work-desc {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: rgb(116, 116, 116);
+  cursor: default;
+}
+
+.work-icons {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.work-icons:hover {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.work-icons p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.work-icons i {
+  font-size: 2em;
+  margin-bottom: 7px;
+}
+
+.work-icons a {
+  font-size: 1.2em;
+}
+
+.work-tags {
+  max-height: 100px;
+  width: 100%;
+  display: flex;
+  padding: 0 15px;
+}
+
+.tag {
+  background-color: pink;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  margin-right: 10px;
+  background-color: #f6f6f6;
+  cursor: default;
+  transition: background-color 0.3s;
+}
+
+.tag:hover {
+  background-color: rgb(231, 231, 231);
+}
+
+.work:nth-child(1) .work-image {
+  background-image: url("/img/projects/1.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.work:nth-child(2) .work-image {
+  background-image: url("/img/projects/2.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.work:nth-child(3) .work-image {
+  background-image: url("/img/projects/3.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.work:nth-child(4) .work-image {
+}
+
+.work:nth-child(5) .work-image {
+}
+
+.work:nth-child(6) .work-image {
+}
+
+.work:nth-child(7) .work-image {
+}
+
+.work:nth-child(8) .work-image {
+}
+
+/*********************************
+**************FOOTER**************
+*********************************/
+
+footer {
+  height: auto;
+  width: 100vw;
+  max-width: 100%;
+  background-color: #f6f6f6;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .text-container {
+  padding: 80px 0 40px 0;
+}
+
+footer .button {
+  width: 300px;
+  padding: 20px;
+  background-color: #ff9800;
+  font-size: 0.9em;
+  border: none;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+}
+
+.legal {
+  padding: 80px 0;
+  text-align: center;
+  font-size: 0.9em;
+  color: rgb(116, 116, 116);
+}
