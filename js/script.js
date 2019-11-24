@@ -1,11 +1,22 @@
+// FIX
+//  - Scale overlay
+//  - Custom sidebar
+
 ///////////////////////////////////
 /////////////SELECTORS/////////////
 ///////////////////////////////////
 
 const indicator = document.querySelector(".indicator");
-const position = document.querySelector("#head").style.backgroundPositionY;
 const nav = document.querySelector("nav");
+const menuMobileIcon = document
+  .querySelector(".menu-mobile")
+  .querySelector("i");
+const head = document.querySelector("#head");
+const bg = document.querySelector(".bg");
+const about = document.querySelector("#about");
 const skills = document.querySelector("#skills");
+const works = document.querySelector("#works");
+const footer = document.querySelector("footer");
 
 //////////////////////////////////
 /////////EVENT LISTENERS//////////
@@ -13,8 +24,7 @@ const skills = document.querySelector("#skills");
 
 document.addEventListener("scroll", () => {
   moveMenuIndicator();
-  //moveBackground();
-  //colorizeNav();
+  colorizeNav();
 });
 
 //////////////////////////////////
@@ -39,21 +49,38 @@ function moveMenuIndicator() {
 
 moveMenuIndicator();
 
-function moveBackground() {
-  document.querySelector(
-    "#head"
-  ).style.backgroundPositionY = `${window.pageYOffset / 2}px`;
-}
-
 function colorizeNav() {
-  if (
-    skills.getBoundingClientRect().top <= 80 &&
-    Math.abs(skills.getBoundingClientRect().top) <
-      skills.getBoundingClientRect().height - 80
+  if (window.pageYOffset < head.getBoundingClientRect().height - 80) {
+    nav.style.backgroundColor = "transparent";
+    nav.querySelector(".logo").style.color = "white";
+    menuMobileIcon.style.color = "white";
+    for (let a of nav.querySelectorAll("h5")) {
+      a.style.color = "white";
+    }
+  } else if (
+    (window.pageYOffset >
+      head.getBoundingClientRect().height +
+        about.getBoundingClientRect().height -
+        80 &&
+      window.pageYOffset <
+        head.getBoundingClientRect().height +
+          about.getBoundingClientRect().height +
+          skills.getBoundingClientRect().height -
+          80) ||
+    window.pageYOffset >
+      head.getBoundingClientRect().height +
+        about.getBoundingClientRect().height +
+        skills.getBoundingClientRect().height +
+        works.getBoundingClientRect().height -
+        80
   ) {
     nav.style.backgroundColor = "#F6F6F6";
   } else {
     nav.style.backgroundColor = "white";
+    nav.querySelector(".logo").style.color = "black";
+    menuMobileIcon.style.color = "black";
+    for (let a of nav.querySelectorAll("h5")) {
+      a.style.color = "black";
+    }
   }
-  console.log(skills.getBoundingClientRect());
 }

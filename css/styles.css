@@ -13,9 +13,56 @@ mint : #10e2cf
 }
 /* font-family: 'Playfair Display SC', serif; */
 
+.color-white {
+  color: white;
+}
+
+.color-gray {
+  color: rgb(116, 116, 116);
+}
+
+.color-black {
+  color: black;
+}
+
+h1 {
+  font-size: 10rem;
+  font-family: "Playfair Display", serif;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.1rem;
+  padding-bottom: 15px;
+}
+
+h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.8rem;
+  margin-bottom: 7px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 a {
   color: #333;
   text-decoration: none;
+  transition: color 1s ease;
 }
 
 .container {
@@ -23,6 +70,7 @@ a {
   max-width: 1190px;
   margin: 0 auto;
   padding: 0 30px;
+  position: relative;
 }
 
 section {
@@ -37,6 +85,18 @@ section {
   visibility: hidden;
 }
 
+.button {
+  width: 300px;
+  padding: 20px;
+  background-color: #ff9800;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+}
+
 /*********************************
 ****************NAV***************
 *********************************/
@@ -46,11 +106,13 @@ nav {
   width: 100vw;
   max-width: 100%;
   position: fixed;
-  background-color: white;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s, background-color 0.3s;
-  font-size: 1.1em;
   z-index: 1;
+  transform: translateY(-80px);
+  opacity: 0;
+  animation: navAnim 2s ease forwards;
+  animation-delay: 2s;
 }
 
 nav .container {
@@ -61,8 +123,9 @@ nav .container {
 
 .logo {
   font-family: "Playfair Display", serif;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   cursor: default;
+  color: white;
 }
 
 .menu {
@@ -93,35 +156,80 @@ nav .container {
   transition: left 0.3s, width 0.3s;
 }
 
+.menu-mobile {
+  font-size: 1.4rem;
+  height: 75px;
+  width: 75px;
+  position: absolute;
+  right: 0px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
 /*********************************
 ***************HEAD***************
 *********************************/
 
 #head {
   height: 100vh;
-  background-image: url("/img/bg3.jpg");
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.bg {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/img/bg.jpg");
   background-size: cover;
   background-position-x: center;
-  /* //background-position-y: -320px; */
-  position: relative;
+  opacity: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+  transform: scale(1);
+  animation: bgAnim 2s ease forwards;
+  animation-delay: 2.2s;
 }
 
 #head .container {
   padding-top: 80px;
+  top: 0;
 }
 
 .head-text {
   height: 50%;
-  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .head-top {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  font-size: 10em;
-  font-family: "Playfair Display", serif;
-  color: rgb(26, 26, 26);
+  position: relative;
+}
+
+.head-top h1 {
+  opacity: 0;
+  animation: helloAnim 1s ease forwards;
+  animation-delay: 1s;
+  transform: translateY(100px);
+}
+
+.head-top span {
+  position: absolute;
+  background-color: black;
+  height: 170px;
+  width: 370px;
+  bottom: -135px;
+  animation: spanAnim 0.1s ease forwards;
+  animation-delay: 2.1s;
+  opacity: 1;
 }
 
 .head-bottom {
@@ -129,12 +237,25 @@ nav .container {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  font-size: 2em;
 }
 
-.head-bottom p {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
+.head-bottom h5 {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: descAnim 1.5s ease forwards;
+  animation-delay: 1.5s;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.head-bottom .button {
+  padding: 15px;
+  width: 180px;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: descAnim 1.5s ease forwards;
+  animation-delay: 1.7s;
 }
 
 /*********************************
@@ -154,22 +275,9 @@ nav .container {
   text-align: center;
 }
 
-.sub-title {
-  font-size: 1.2em;
-  color: rgb(116, 116, 116);
-  margin-bottom: 7px;
-}
-
-.title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.1em;
-  margin-bottom: 25px;
-}
-
-#about p {
-  font-size: 1.2em;
-  line-height: 1.8em;
-  margin-bottom: 20px;
+.text-container h2 {
+  max-width: 420px;
+  margin: 0 auto;
 }
 
 /*********************************
@@ -181,12 +289,16 @@ nav .container {
   background-color: #f6f6f6;
 }
 
+#skills h2 {
+  padding-bottom: 0;
+}
+
 .skills-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
 }
 
 .skill {
@@ -204,6 +316,7 @@ nav .container {
   justify-content: center;
   align-items: flex-start;
   transition: transform 0.2s;
+  margin-bottom: 20px;
 }
 
 .skill-icon:hover {
@@ -217,8 +330,6 @@ nav .container {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  font-size: 1.1em;
-  color: rgb(116, 116, 116);
   cursor: default;
 }
 
@@ -267,15 +378,8 @@ nav .container {
   margin-bottom: 8px;
 }
 
-.work-title a {
-  font-family: "Playfair Display", serif;
-  font-size: 1.3em;
-}
-
 .work-desc {
-  font-size: 1em;
   line-height: 1.5em;
-  color: rgb(116, 116, 116);
   cursor: default;
 }
 
@@ -319,10 +423,9 @@ nav .container {
 
 .tag {
   background-color: pink;
-  padding: 5px 20px;
+  padding: 8px 20px;
   border-radius: 10px;
-  font-size: 0.8em;
-  margin-right: 10px;
+  transform: scale(0.8);
   background-color: #f6f6f6;
   cursor: default;
   transition: background-color 0.3s;
@@ -386,20 +489,164 @@ footer .text-container {
   padding: 80px 0 40px 0;
 }
 
-footer .button {
-  width: 300px;
-  padding: 20px;
-  background-color: #ff9800;
-  font-size: 0.9em;
-  border: none;
-  cursor: pointer;
-  color: white;
-  text-align: center;
+footer .text-container h6 {
+  color: black;
+}
+
+footer h6 {
+  line-height: 1.5rem;
 }
 
 .legal {
   padding: 80px 0;
   text-align: center;
-  font-size: 0.9em;
-  color: rgb(116, 116, 116);
+}
+
+/*********************************
+***********MEDIA QUERIES**********
+*********************************/
+
+@media (max-width: 780px) {
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0;
+  }
+}
+
+@media (max-width: 570px) {
+  h1 {
+    font-size: 7rem;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0;
+  }
+
+  .works-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .menu {
+    visibility: hidden;
+  }
+
+  .menu-mobile {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 420px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+  }
+
+  h6 {
+    font-size: 0.9rem;
+  }
+
+  nav {
+    height: 70px;
+  }
+
+  #head .container {
+    padding-top: 0px;
+    margin-top: -50px;
+  }
+
+  .head-bottom h5 {
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  .head-bottom .button {
+    font-size: 0.5em;
+    padding: 15px;
+    width: 140px;
+  }
+
+  .skill {
+    padding: 35px 0;
+  }
+
+  .work-text {
+    padding: 15px 0;
+  }
+
+  .work-tags {
+    padding: 0;
+  }
+
+  footer p:nth-child(1) {
+    padding: 15px 0 0 0;
+  }
+
+  footer p:nth-child(2) {
+    padding: 0px;
+  }
+}
+
+/*********************************
+*************KEY-FRAMES***********
+*********************************/
+
+@keyframes helloAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes spanAnim {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes descAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes navAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bgAnim {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
