@@ -8,9 +8,13 @@
 
 const indicator = document.querySelector(".indicator");
 const nav = document.querySelector("nav");
+const navIcon = nav.querySelector("i");
 const menuMobileIcon = document
   .querySelector(".menu-mobile")
   .querySelector("i");
+const menuMobileMain = document.querySelector(".menu-mobile-main");
+const menuMobileUl = menuMobileMain.querySelector("ul");
+const menuMobileLis = menuMobileMain.querySelectorAll("li");
 const head = document.querySelector("#head");
 const bg = document.querySelector(".bg");
 const about = document.querySelector("#about");
@@ -26,6 +30,50 @@ document.addEventListener("scroll", () => {
   moveMenuIndicator();
   colorizeNav();
 });
+
+// Toggle mobile menu
+menuMobileIcon.addEventListener("mousedown", () => {
+  if (!menuMobileMain.classList.contains("main-active")) {
+    showMobileMenu();
+  } else {
+    hideMobileMenu();
+  }
+});
+
+function showMobileMenu() {
+  nav.classList.toggle("nav-active");
+  menuMobileUl.style.visibility = "visible";
+  for (let li of menuMobileLis) {
+    li.style.visibility = "visible";
+    li.style.opacity = "1";
+  }
+  navIcon.classList = "fas fa-times";
+  navIcon.style.transform = "scale(1.2)";
+  setTimeout(() => {
+    menuMobileMain.classList.toggle("main-active");
+  }, 100);
+}
+
+function hideMobileMenu() {
+  menuMobileMain.classList.toggle("main-active");
+  for (let i = 3; i >= 0; i--) {
+    menuMobileLis[i].style.transitionDelay = `0.${3 - i}s`;
+  }
+  for (let li of menuMobileLis) {
+    li.style.opacity = "0";
+  }
+
+  navIcon.style.transform = "";
+  navIcon.style.paddingTop = "";
+  navIcon.classList = "fas fa-bars";
+  menuMobileUl.style.visibility = "hidden";
+  setTimeout(() => {
+    nav.classList.toggle("nav-active");
+    for (let i = 0; i <= 3; i++) {
+      menuMobileLis[i].style.transitionDelay = `0.${i + 1}s`;
+    }
+  }, 600);
+}
 
 //////////////////////////////////
 ////////////FUNCTIONS/////////////

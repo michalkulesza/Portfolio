@@ -102,7 +102,7 @@ section {
 *********************************/
 
 nav {
-  height: 80px;
+  height: 70px;
   width: 100vw;
   max-width: 100%;
   position: fixed;
@@ -110,9 +110,19 @@ nav {
   transition: box-shadow 0.3s, background-color 0.3s;
   z-index: 1;
   transform: translateY(-80px);
+  transition: background-color 0.3s;
   opacity: 0;
   animation: navAnim 2s ease forwards;
   animation-delay: 2s;
+}
+
+.nav-active {
+  background-color: black !important;
+}
+
+.nav-active .logo,
+.nav-active i {
+  color: white !important;
 }
 
 nav .container {
@@ -167,6 +177,67 @@ nav .container {
   align-items: center;
   justify-content: center;
   visibility: hidden;
+}
+
+.menu-mobile i {
+  padding: 25px 20px 20px 20px;
+}
+
+.menu-mobile-main {
+  position: fixed;
+  height: 0px;
+  width: 100vw;
+  top: 70px;
+  left: 0;
+  background-color: black;
+  transition: height 0.7s ease;
+  -webkit-transition: -webkit-height 700ms;
+  -webkit-transition: height 700ms;
+  -moz-transition: height 700ms;
+  -o-transition: height 700ms;
+}
+
+.main-active {
+  height: calc(100vh - 70px);
+}
+
+.menu-mobile-main ul {
+  visibility: hidden;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  /* opacity: 0; */
+}
+
+.menu-mobile-main li {
+  text-align: center;
+  padding: 20px 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menu-mobile-main li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.menu-mobile-main li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.menu-mobile-main li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.menu-mobile-main li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.menu-mobile-main li:not(:last-child) {
+  border-bottom: solid rgb(75, 74, 74) 1px;
+  width: 80%;
 }
 
 /*********************************
@@ -278,6 +349,11 @@ nav .container {
 .text-container h2 {
   max-width: 420px;
   margin: 0 auto;
+}
+
+.text-container h4 {
+  line-height: 2rem;
+  margin-bottom: 20px;
 }
 
 /*********************************
@@ -436,7 +512,7 @@ nav .container {
 }
 
 .work:nth-child(1) .work-image {
-  background-image: url("/img/projects/1.png");
+  background-image: url("/img/projects/calc.jpg");
   background-size: cover;
   background-position: center;
 }
