@@ -1,6 +1,7 @@
 /*
 6e09f3
 mint : #10e2cf
+ADD COLOR VARS
 
 */
 
@@ -11,7 +12,6 @@ mint : #10e2cf
   font-family: "Open Sans", sans-serif;
   scroll-behavior: smooth;
 }
-/* font-family: 'Playfair Display SC', serif; */
 
 .color-white {
   color: white;
@@ -19,10 +19,6 @@ mint : #10e2cf
 
 .color-gray {
   color: rgb(116, 116, 116);
-}
-
-.color-black {
-  color: black;
 }
 
 h1 {
@@ -33,7 +29,7 @@ h1 {
 h2 {
   font-family: "Playfair Display", serif;
   font-size: 2.1rem;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 h3 {
@@ -45,8 +41,12 @@ h4 {
   font-size: 1.2rem;
   margin-bottom: 20px;
   line-height: 1.8rem;
-  margin-bottom: 7px;
   font-weight: 400;
+  color: rgb(29, 29, 29);
+}
+
+h4.color-gray {
+  margin-bottom: 10px !important;
 }
 
 h5 {
@@ -81,7 +81,7 @@ section {
 .target {
   position: absolute;
   left: 0px;
-  top: -80px;
+  top: -70px;
   visibility: hidden;
 }
 
@@ -421,7 +421,7 @@ nav .container {
 .works-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 40px;
   padding-bottom: 80px;
@@ -497,9 +497,19 @@ nav .container {
   padding: 0 15px;
 }
 
+.work-single {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
 .tag {
   background-color: pink;
-  padding: 8px 20px;
+  padding: 8px 10px;
   border-radius: 10px;
   transform: scale(0.8);
   background-color: #f6f6f6;
@@ -511,25 +521,36 @@ nav .container {
   background-color: rgb(231, 231, 231);
 }
 
+/****************************************
+/****************************************
+/****************************************
+/****************IMAGES******************
+/****************************************
+/****************************************
+/***************************************/
+
 .work:nth-child(1) .work-image {
+  background-image: url("/img/projects/discover.jpg");
+  background-size: cover;
+  background-position: left;
+}
+
+.work:nth-child(2) .work-image {
+  background-image: url("/img/projects/url.jpg");
+  background-size: cover;
+  background-position: left;
+}
+
+.work:nth-child(3) .work-image {
   background-image: url("/img/projects/calc.jpg");
   background-size: cover;
   background-position: center;
 }
 
-.work:nth-child(2) .work-image {
-  background-image: url("/img/projects/2.png");
-  background-size: cover;
-  background-position: center;
-}
-
-.work:nth-child(3) .work-image {
-  background-image: url("/img/projects/3.png");
-  background-size: cover;
-  background-position: center;
-}
-
 .work:nth-child(4) .work-image {
+  background-image: url("/img/projects/guess.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .work:nth-child(5) .work-image {
@@ -587,6 +608,10 @@ footer h6 {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 0;
   }
+
+  .works-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (max-width: 570px) {
@@ -595,12 +620,16 @@ footer h6 {
   }
 
   .skills-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 50%);
     grid-gap: 0;
   }
 
   .works-container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr%);
+  }
+
+  .work-tags {
+    flex-wrap: wrap;
   }
 
   .menu {

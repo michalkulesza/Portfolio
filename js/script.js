@@ -1,6 +1,6 @@
 // FIX
 //  - Scale overlay
-//  - Custom sidebar
+//  - Move menu indicator change triggers to section positions
 
 ///////////////////////////////////
 /////////////SELECTORS/////////////
@@ -9,9 +9,7 @@
 const indicator = document.querySelector(".indicator");
 const nav = document.querySelector("nav");
 const navIcon = nav.querySelector("i");
-const menuMobileIcon = document
-  .querySelector(".menu-mobile")
-  .querySelector("i");
+const menuMobileIcon = document.querySelector(".menu-mobile").querySelector("i");
 const menuMobileMain = document.querySelector(".menu-mobile-main");
 const menuMobileUl = menuMobileMain.querySelector("ul");
 const menuMobileLis = menuMobileMain.querySelectorAll("li");
@@ -81,14 +79,14 @@ function hideMobileMenu() {
 
 function moveMenuIndicator() {
   if (window.pageYOffset <= 320) {
-    indicator.style.left = "0px";
-    indicator.style.width = "51px";
+    indicator.style.left = "2px";
+    indicator.style.width = "53px";
   } else if (window.pageYOffset > 320 && window.pageYOffset <= 1820) {
-    indicator.style.left = "70px";
-    indicator.style.width = "50px";
+    indicator.style.left = "73px";
+    indicator.style.width = "56px";
   } else if (window.pageYOffset > 1820 && window.pageYOffset <= 4300) {
-    indicator.style.left = "139px";
-    indicator.style.width = "52px";
+    indicator.style.left = "149px";
+    indicator.style.width = "56px";
   } else {
     indicator.style.left = "212px";
     indicator.style.width = "63px";
@@ -107,9 +105,7 @@ function colorizeNav() {
     }
   } else if (
     (window.pageYOffset >
-      head.getBoundingClientRect().height +
-        about.getBoundingClientRect().height -
-        80 &&
+      head.getBoundingClientRect().height + about.getBoundingClientRect().height - 80 &&
       window.pageYOffset <
         head.getBoundingClientRect().height +
           about.getBoundingClientRect().height +
