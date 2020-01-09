@@ -554,6 +554,9 @@ nav .container {
 }
 
 .work:nth-child(5) .work-image {
+  background-image: url("/img/projects/speed.jpg");
+  background-size: cover;
+  background-position: left;
 }
 
 .work:nth-child(6) .work-image {
