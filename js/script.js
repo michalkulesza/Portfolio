@@ -13,6 +13,7 @@ const menuMobileIcon = document.querySelector(".menu-mobile").querySelector("i")
 const menuMobileMain = document.querySelector(".menu-mobile-main");
 const menuMobileUl = menuMobileMain.querySelector("ul");
 const menuMobileLis = menuMobileMain.querySelectorAll("li");
+const menu = document.querySelector(".menu");
 const head = document.querySelector("#head");
 const bg = document.querySelector(".bg");
 const about = document.querySelector("#about");
@@ -28,6 +29,10 @@ document.addEventListener("scroll", () => {
   moveMenuIndicator();
   colorizeNav();
 });
+
+for (let a of menuMobileLis) {
+  a.addEventListener("click", hideMobileMenu);
+}
 
 // Toggle mobile menu
 menuMobileIcon.addEventListener("mousedown", () => {
@@ -123,7 +128,7 @@ function colorizeNav() {
     nav.style.backgroundColor = "white";
     nav.querySelector(".logo").style.color = "black";
     menuMobileIcon.style.color = "black";
-    for (let a of nav.querySelectorAll("h5")) {
+    for (let a of menu.querySelectorAll("h5")) {
       a.style.color = "black";
     }
   }
