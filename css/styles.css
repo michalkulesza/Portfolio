@@ -530,36 +530,41 @@ nav .container {
 /***************************************/
 
 .work:nth-child(1) .work-image {
+  background-image: url("/img/projects/feeder.jpg");
+  background-size: cover;
+  background-position: left;
+}
+.work:nth-child(2) .work-image {
   background-image: url("/img/projects/discover.jpg");
   background-size: cover;
   background-position: left;
 }
 
-.work:nth-child(2) .work-image {
+.work:nth-child(3) .work-image {
   background-image: url("/img/projects/url.jpg");
   background-size: cover;
   background-position: left;
 }
 
-.work:nth-child(3) .work-image {
+.work:nth-child(4) .work-image {
   background-image: url("/img/projects/note.jpg");
   background-size: cover;
   background-position: left;
 }
 
-.work:nth-child(4) .work-image {
+.work:nth-child(5) .work-image {
   background-image: url("/img/projects/calc.jpg");
   background-size: cover;
   background-position: center;
 }
 
-.work:nth-child(5) .work-image {
+.work:nth-child(6) .work-image {
   background-image: url("/img/projects/guess.jpg");
   background-size: cover;
   background-position: center;
 }
 
-.work:nth-child(6) .work-image {
+.work:nth-child(7) .work-image {
   background-image: url("/img/projects/speed.jpg");
   background-size: cover;
   background-position: left;
